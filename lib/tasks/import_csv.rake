@@ -7,11 +7,7 @@ namespace :import_csv do
     list = []
 
     CSV.foreach(path, headers: true)do |row|
-      list << {
-          name: row["name"],
-          age: row["age"],
-          address: row["address"]
-      }
+      list << row.to_h
     end
 
     puts "インポート処理を開始".red
